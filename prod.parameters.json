@@ -10,6 +10,9 @@
         },
         "storageAccountName": {
             "value": "afernandezprodstorage"
+        },
+        "environmentType": {
+            "value": "prod"
         }
     }
 }
