@@ -2,13 +2,8 @@
 param location string = resourceGroup().location
 param appServiceAppName string
 param appServicePlanName string
-@allowed([
-  'nonprod'
-  'prod'
-])
-param environmentType string
 
-var appServicePlanSkuName = (environmentType == 'prod') ? 'P2V3' : 'F1'
+var appServicePlanSkuName = 'F1'
 
 resource appServicePlan 'Microsoft.Web/serverFarms@2022-03-01' = {
   name: appServicePlanName
