@@ -2,11 +2,11 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "appServiceAppName": {
-            "value": "afernandez-assignment-dev"
+        "appServiceAppName2": {
+            "value": "afernandez-assignment-dv"
         },
-        "appServicePlanName": {
-            "value": "afernandez-assignment-dev"
+        "appServicePlanName2": {
+            "value": "afernandez-assignment-dv"
         },
         "storageAccountName": {
             "value": "afernandezdevstorage"
