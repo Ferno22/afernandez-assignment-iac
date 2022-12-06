@@ -3,10 +3,10 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "appServiceAppName1": {
-            "value": "afernandez-assignment-prod"
+            "value": "afernandez-assignment-pr"
         },
         "appServicePlanName1": {
-            "value": "afernandez-assignment-prod"
+            "value": "afernandez-assignment-pr"
         },
         "storageAccountName": {
             "value": "afernandezprodstorage"

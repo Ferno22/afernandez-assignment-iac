@@ -3,10 +3,10 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "appServiceAppName2": {
-            "value": "afernandez-assignment-dev"
+            "value": "afernandez-assignment-dv"
         },
         "appServicePlanName2": {
-            "value": "afernandez-assignment-dev"
+            "value": "afernandez-assignment-dv"
         },
         "storageAccountName": {
             "value": "afernandezdevstorage"

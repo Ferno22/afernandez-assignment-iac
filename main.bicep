@@ -1,19 +1,19 @@
 @sys.description('The Web App name.')
 @minLength(3)
 @maxLength(24)
-param appServiceAppName1 string = 'afernandez-assignment-prod'
+param appServiceAppName1 string = 'afernandez-assignment-pr'
 @sys.description('The App Service Plan name.')
 @minLength(3)
 @maxLength(24)
-param appServicePlanName1 string = 'afernandez-assignment-prod'
+param appServicePlanName1 string = 'afernandez-assignment-pr'
 @sys.description('The Web App name.')
 @minLength(3)
 @maxLength(24)
-param appServiceAppName2 string = 'afernandez-assignment-dev'
+param appServiceAppName2 string = 'afernandez-assignment-dv'
 @sys.description('The App Service Plan name.')
 @minLength(3)
 @maxLength(24)
-param appServicePlanName2 string = 'afernandez-assignment-dev'
+param appServicePlanName2 string = 'afernandez-assignment-dv'
 @sys.description('The Storage Account name.')
 @minLength(3)
 @maxLength(24)
