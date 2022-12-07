@@ -1,22 +1,29 @@
 @sys.description('The Web App name.')
 @minLength(3)
-@maxLength(24)
-param appServiceAppName1 string = 'afernandez-assignment-pr'
+@maxLength(30)
+param appServiceAppName1 string = 'afernandez-assignment-be-pr'
+@sys.description('The Web App name.')
+@minLength(3)
+@maxLength(30)
+param appServiceAppName3 string = 'afernandez-assignment-fe-pr'
 @sys.description('The App Service Plan name.')
 @minLength(3)
-@maxLength(24)
+@maxLength(30)
 param appServicePlanName1 string = 'afernandez-assignment-pr'
 @sys.description('The Web App name.')
 @minLength(3)
-@maxLength(24)
-param appServiceAppName2 string = 'afernandez-assignment-dv'
+@maxLength(30)
+param appServiceAppName2 string = 'afernandez-assignment-be-dv'
+@minLength(3)
+@maxLength(30)
+param appServiceAppName4 string = 'afernandez-assignment-fe-dv'
 @sys.description('The App Service Plan name.')
 @minLength(3)
-@maxLength(24)
+@maxLength(30)
 param appServicePlanName2 string = 'afernandez-assignment-dv'
 @sys.description('The Storage Account name.')
 @minLength(3)
-@maxLength(24)
+@maxLength(30)
 param storageAccountName string = 'afernandezstorage'
 @allowed([
   'nonprod'
@@ -24,6 +31,14 @@ param storageAccountName string = 'afernandezstorage'
   ])
 param environmentType string = 'nonprod'
 param location string = resourceGroup().location
+@secure()
+param dbhost string
+@secure()
+param dbuser string
+@secure()
+param dbpass string
+@secure()
+param dbname string
 
 var storageAccountSkuName = (environmentType == 'prod') ? 'Standard_GRS' : 'Standard_LRS'  
 
@@ -45,6 +60,23 @@ module appService1 'modules/appStuff.bicep' = if (environmentType == 'prod') {
     location: location
     appServiceAppName: appServiceAppName1
     appServicePlanName: appServicePlanName1
+    dbhost: dbhost
+    dbuser: dbuser
+    dbpass: dbpass
+    dbname: dbname
+  }
+}
+
+module appService3 'modules/appStuff.bicep' = if (environmentType == 'prod') {
+  name: 'appService3'
+  params: { 
+    location: location
+    appServiceAppName: appServiceAppName3
+    appServicePlanName: appServicePlanName1
+    dbhost: dbhost
+    dbuser: dbuser
+    dbpass: dbpass
+    dbname: dbname
   }
 }
 
@@ -54,9 +86,26 @@ module appService2 'modules/appStuff.bicep' = if (environmentType == 'nonprod') 
     location: location
     appServiceAppName: appServiceAppName2
     appServicePlanName: appServicePlanName2
+    dbhost: dbhost
+    dbuser: dbuser
+    dbpass: dbpass
+    dbname: dbname
   }
 }
 
-  output appServiceAppHostName string = (environmentType == 'prod') ? appService1.outputs.appServiceAppHostName : appService2.outputs.appServiceAppHostName
+module appService4 'modules/appStuff.bicep' = if (environmentType == 'nonprod') {
+  name: 'appService4'
+  params: { 
+    location: location
+    appServiceAppName: appServiceAppName4
+    appServicePlanName: appServicePlanName2
+    dbhost: dbhost
+    dbuser: dbuser
+    dbpass: dbpass
+    dbname: dbname
+  }
+}
 
+  output appServiceAppHostName1 string = (environmentType == 'prod') ? appService1.outputs.appServiceAppHostName : appService2.outputs.appServiceAppHostName
+  output appServiceAppHostName2 string = (environmentType == 'prod') ? appService3.outputs.appServiceAppHostName : appService4.outputs.appServiceAppHostName
     
