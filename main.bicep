@@ -38,9 +38,7 @@ param dbuser string
 @secure()
 param dbpass string
 @secure()
-param dbname1 string
-@secure()
-param dbname2 string
+param dbname string
 
 var storageAccountSkuName = (environmentType == 'prod') ? 'Standard_GRS' : 'Standard_LRS'  
 
@@ -65,7 +63,7 @@ module appService1 'modules/appStuff.bicep' = if (environmentType == 'prod') {
     dbhost: dbhost
     dbuser: dbuser
     dbpass: dbpass
-    dbname: dbname1
+    dbname: dbname
   }
 }
 
@@ -78,7 +76,7 @@ module appService3 'modules/appStuff.bicep' = if (environmentType == 'prod') {
     dbhost: dbhost
     dbuser: dbuser
     dbpass: dbpass
-    dbname: dbname1
+    dbname: dbname
   }
 }
 
@@ -91,7 +89,7 @@ module appService2 'modules/appStuff.bicep' = if (environmentType == 'nonprod') 
     dbhost: dbhost
     dbuser: dbuser
     dbpass: dbpass
-    dbname: dbname2
+    dbname: dbname
   }
 }
 
@@ -104,7 +102,7 @@ module appService4 'modules/appStuff.bicep' = if (environmentType == 'nonprod') 
     dbhost: dbhost
     dbuser: dbuser
     dbpass: dbpass
-    dbname: dbname2
+    dbname: dbname
   }
 }
 
