@@ -3,7 +3,10 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "appServiceAppName2": {
-            "value": "afernandez-assignment-dv"
+            "value": "afernandez-assignment-be-dv"
+        },
+        "appServiceAppName4": {
+            "value": "afernandez-assignment-fe-dv"
         },
         "appServicePlanName2": {
             "value": "afernandez-assignment-dv"
