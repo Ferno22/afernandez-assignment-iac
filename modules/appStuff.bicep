@@ -8,7 +8,7 @@ param dbpass string
 param dbname string
 param runtimeStack string
 
-var appServicePlanSkuName = 'F1'
+var appServicePlanSkuName = 'B1'
 
 resource appServicePlan 'Microsoft.Web/serverFarms@2022-03-01' = {
   name: appServicePlanName
