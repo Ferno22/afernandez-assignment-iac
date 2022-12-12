@@ -32,7 +32,6 @@ param storageAccountName string = 'afernandezstorage'
 param environmentType string = 'nonprod'
 param runtimeStack1 string = 'Python|3.9'
 param runtimeStack2 string = 'Node|14-lts'
-param startupCommand string
 param startupCommand1 string = 'pm2 serve /home/site/wwwroot/dist --no-daemon --spa'
 param location string = resourceGroup().location
 @secure()
@@ -65,7 +64,7 @@ module appService1 'modules/appStuff.bicep' = if (environmentType == 'prod') {
     appServiceAppName: appServiceAppName1
     appServicePlanName: appServicePlanName1
     runtimeStack: runtimeStack1
-    startupCommand: startupCommand
+    startupCommand: startupCommand1
     dbhost: dbhost
     dbuser: dbuser
     dbpass: dbpass
@@ -95,7 +94,7 @@ module appService2 'modules/appStuff.bicep' = if (environmentType == 'nonprod') 
     appServiceAppName: appServiceAppName2
     appServicePlanName: appServicePlanName2
     runtimeStack: runtimeStack1
-    startupCommand: startupCommand
+    startupCommand: startupCommand1
     dbhost: dbhost
     dbuser: dbuser
     dbpass: dbpass
