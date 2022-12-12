@@ -64,7 +64,6 @@ module appService1 'modules/appStuff.bicep' = if (environmentType == 'prod') {
     appServiceAppName: appServiceAppName1
     appServicePlanName: appServicePlanName1
     runtimeStack: runtimeStack1
-    startupCommand: startupCommand1
     dbhost: dbhost
     dbuser: dbuser
     dbpass: dbpass
@@ -72,7 +71,7 @@ module appService1 'modules/appStuff.bicep' = if (environmentType == 'prod') {
   }
 }
 
-module appService3 'modules/appStuff.bicep' = if (environmentType == 'prod') {
+module appService3 'modules/appStuff2.bicep' = if (environmentType == 'prod') {
   name: 'appService3'
   params: { 
     location: location
@@ -94,7 +93,6 @@ module appService2 'modules/appStuff.bicep' = if (environmentType == 'nonprod') 
     appServiceAppName: appServiceAppName2
     appServicePlanName: appServicePlanName2
     runtimeStack: runtimeStack1
-    startupCommand: startupCommand1
     dbhost: dbhost
     dbuser: dbuser
     dbpass: dbpass
@@ -102,7 +100,7 @@ module appService2 'modules/appStuff.bicep' = if (environmentType == 'nonprod') 
   }
 }
 
-module appService4 'modules/appStuff.bicep' = if (environmentType == 'nonprod') {
+module appService4 'modules/appStuff2.bicep' = if (environmentType == 'nonprod') {
   name: 'appService4'
   params: { 
     location: location
