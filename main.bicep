@@ -30,7 +30,7 @@ param storageAccountName string = 'afernandezstorage'
   'prod'
   ])
 param environmentType string = 'nonprod'
-param runtimeStack1 string = 'Python|3.10'
+param runtimeStack1 string = 'Python|3.9'
 param runtimeStack2 string = 'Node|14-lts'
 param startupCommand1 string = 'pm2 serve /home/site/wwwroot/dist --no-daemon --spa'
 param location string = resourceGroup().location
