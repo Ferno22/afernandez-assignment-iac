@@ -7,6 +7,7 @@ param dbuser string
 param dbpass string
 param dbname string
 param runtimeStack string
+param startupCommand string
 
 var appServicePlanSkuName = 'F1'
 
@@ -29,6 +30,7 @@ properties: {
   httpsOnly: true
   siteConfig: {
     linuxFxVersion: runtimeStack
+    appCommandLine: startupCommand
     appSettings: [
       {
         name: 'DBUSER'

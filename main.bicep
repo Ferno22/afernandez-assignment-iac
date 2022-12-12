@@ -30,6 +30,9 @@ param storageAccountName string = 'afernandezstorage'
   'prod'
   ])
 param environmentType string = 'nonprod'
+param runtimeStack1 string = 'Python|3.9'
+param runtimeStack2 string = 'Node|14-lts'
+param startupCommand1 string = 'pm2 serve /home/site/wwwroot/dist --no-daemon --spa'
 param location string = resourceGroup().location
 @secure()
 param dbhost string
@@ -60,6 +63,7 @@ module appService1 'modules/appStuff.bicep' = if (environmentType == 'prod') {
     location: location
     appServiceAppName: appServiceAppName1
     appServicePlanName: appServicePlanName1
+    runtimeStack: runtimeStack1
     dbhost: dbhost
     dbuser: dbuser
     dbpass: dbpass
@@ -67,12 +71,14 @@ module appService1 'modules/appStuff.bicep' = if (environmentType == 'prod') {
   }
 }
 
-module appService3 'modules/appStuff.bicep' = if (environmentType == 'prod') {
+module appService3 'modules/appStuff2.bicep' = if (environmentType == 'prod') {
   name: 'appService3'
   params: { 
     location: location
     appServiceAppName: appServiceAppName3
     appServicePlanName: appServicePlanName1
+    runtimeStack: runtimeStack2
+    startupCommand: startupCommand1
     dbhost: dbhost
     dbuser: dbuser
     dbpass: dbpass
@@ -86,6 +92,7 @@ module appService2 'modules/appStuff.bicep' = if (environmentType == 'nonprod') 
     location: location
     appServiceAppName: appServiceAppName2
     appServicePlanName: appServicePlanName2
+    runtimeStack: runtimeStack1
     dbhost: dbhost
     dbuser: dbuser
     dbpass: dbpass
@@ -93,12 +100,14 @@ module appService2 'modules/appStuff.bicep' = if (environmentType == 'nonprod') 
   }
 }
 
-module appService4 'modules/appStuff.bicep' = if (environmentType == 'nonprod') {
+module appService4 'modules/appStuff2.bicep' = if (environmentType == 'nonprod') {
   name: 'appService4'
   params: { 
     location: location
     appServiceAppName: appServiceAppName4
     appServicePlanName: appServicePlanName2
+    runtimeStack: runtimeStack2
+    startupCommand: startupCommand1
     dbhost: dbhost
     dbuser: dbuser
     dbpass: dbpass
