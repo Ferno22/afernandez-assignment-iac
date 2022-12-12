@@ -6,6 +6,8 @@ param dbhost string
 param dbuser string
 param dbpass string
 param dbname string
+param runtimeStack string
+param startupCommand string
 
 var appServicePlanSkuName = 'F1'
 
@@ -15,6 +17,7 @@ resource appServicePlan 'Microsoft.Web/serverFarms@2022-03-01' = {
   sku: {
     name: appServicePlanSkuName
   }
+  kind: 'linux'
 }
 resource appServiceApp 'Microsoft.Web/sites@2022-03-01' = {
 name: appServiceAppName
@@ -23,6 +26,8 @@ properties: {
   serverFarmId: appServicePlan.id
   httpsOnly: true
   siteConfig: {
+    linuxFxVersion: runtimeStack
+    appCommandLine: startupCommand
     appSettings: [
       {
         name: 'DBUSER'
