@@ -47,8 +47,8 @@ properties: {
         value: dbhost
       }
       {
-        name: 'SC_DO_BUILD_DURING_DEPLOYMENT'
-        value: '1'
+        name: 'SCM_DO_BUILD_DURING_DEPLOYMENT'
+        value: 'true'
       }
     ]
   }
