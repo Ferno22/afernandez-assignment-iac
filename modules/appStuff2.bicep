@@ -48,6 +48,10 @@ properties: {
         name: 'DBHOST'
         value: dbhost
       }
+      {
+        name: 'SC_DO_BUILD_DURING_DEPLOYMENT'
+        value: '1'
+      }
     ]
   }
   }
