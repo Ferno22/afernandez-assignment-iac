@@ -50,7 +50,11 @@ properties: {
       }
       {
         name: 'SCM_DO_BUILD_DURING_DEPLOYMENT'
-        value: '1'
+        value: 'true'
+      }
+      {
+        name: 'ENABLE_ORYX_BUILD'
+        value: 'true'
       }
     ]
   }
