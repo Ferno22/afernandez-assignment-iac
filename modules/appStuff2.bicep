@@ -2,10 +2,6 @@
 param location string = resourceGroup().location
 param appServiceAppName string
 param appServicePlanName string
-param dbhost string
-param dbuser string
-param dbpass string
-param dbname string
 param runtimeStack string
 param startupCommand string
 
@@ -31,32 +27,6 @@ properties: {
   siteConfig: {
     linuxFxVersion: runtimeStack
     appCommandLine: startupCommand
-    appSettings: [
-      {
-        name: 'DBUSER'
-        value: dbuser
-      }
-      {
-        name: 'DBPASS'
-        value: dbpass
-      }
-      {
-        name: 'DBNAME'
-        value: dbname
-      }
-      {
-        name: 'DBHOST'
-        value: dbhost
-      }
-      {
-        name: 'SCM_DO_BUILD_DURING_DEPLOYMENT'
-        value: 'true'
-      }
-      {
-        name: 'ENABLE_ORYX_BUILD'
-        value: 'true'
-      }
-    ]
   }
   }
 }

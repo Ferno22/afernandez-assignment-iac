@@ -21,10 +21,6 @@ param appServiceAppName4 string = 'afernandez-assignment-fe-dv'
 @minLength(3)
 @maxLength(30)
 param appServicePlanName2 string = 'afernandez-assignment-dv'
-@sys.description('The Storage Account name.')
-@minLength(3)
-@maxLength(30)
-param storageAccountName string = 'afernandezstorage'
 @allowed([
   'nonprod'
   'prod'
@@ -43,19 +39,6 @@ param dbpass string
 @secure()
 param dbname string
 
-var storageAccountSkuName = (environmentType == 'prod') ? 'Standard_GRS' : 'Standard_LRS'  
-
-resource storageAccount 'Microsoft.Storage/storageAccounts@2022-05-01' = {
-    name: storageAccountName
-    location: location
-    sku: {
-      name: storageAccountSkuName
-    }
-    kind: 'StorageV2'
-    properties: {
-      accessTier: 'Hot'
-    }
-  }
 
 module appService1 'modules/appStuff.bicep' = if (environmentType == 'prod') {
   name: 'appService1'
@@ -79,10 +62,6 @@ module appService3 'modules/appStuff2.bicep' = if (environmentType == 'prod') {
     appServicePlanName: appServicePlanName1
     runtimeStack: runtimeStack2
     startupCommand: startupCommand1
-    dbhost: dbhost
-    dbuser: dbuser
-    dbpass: dbpass
-    dbname: dbname
   }
 }
 
@@ -108,10 +87,6 @@ module appService4 'modules/appStuff2.bicep' = if (environmentType == 'nonprod')
     appServicePlanName: appServicePlanName2
     runtimeStack: runtimeStack2
     startupCommand: startupCommand1
-    dbhost: dbhost
-    dbuser: dbuser
-    dbpass: dbpass
-    dbname: dbname
   }
 }
 

@@ -11,9 +11,6 @@
         "appServicePlanName2": {
             "value": "afernandez-assignment-dv"
         },
-        "storageAccountName": {
-            "value": "afernandezdevstorage"
-        },
         "environmentType": {
             "value": "nonprod"
         }
