@@ -11,9 +11,6 @@
         "appServicePlanName1": {
             "value": "afernandez-assignment-pr"
         },
-        "storageAccountName": {
-            "value": "afernandezprodstorage"
-        },
         "environmentType": {
             "value": "prod"
         }
